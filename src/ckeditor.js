@@ -41,7 +41,7 @@ class CKEditor extends Component {
     }
 
     if (props.config && this.state.config !== props.config) {
-      if ('readOnly' in props.config)
+      if ("readOnly" in props.config)
         this.instance.setReadOnly(props.config.readOnly);
     }
 
@@ -53,7 +53,7 @@ class CKEditor extends Component {
   }
 
   componentWillUnmount() {
-    this.instance.removeListener('change', this.changeListener);
+    this.instance.removeListener("change", this.changeListener);
     this.instance.destroy();
   }
 
