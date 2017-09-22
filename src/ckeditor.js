@@ -5,7 +5,7 @@ class CKEditor extends Component {
   constructor(props) {
     super(props);
 
-    this.listener = this.listener.bind(this);
+    this.changeListener = this.changeListener.bind(this);
 
     this.state = {
       value: props.value,
