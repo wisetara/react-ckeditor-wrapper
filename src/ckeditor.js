@@ -6,6 +6,7 @@ class CKEditor extends Component {
     super(props);
 
     this.changeListener = this.changeListener.bind(this);
+    this.loadListener = this.loadListener.bind(this);
 
     this.state = {
       value: props.value,
@@ -31,6 +32,8 @@ class CKEditor extends Component {
       e.editor.setData(this.state.value);
       if ("readOnly" in this.state.config)
         this.instance.setReadOnly(this.state.config.readOnly);
+
+      this.loadListener();
     });
     this.instance.on('change', this.changeListener);
   }
@@ -61,6 +64,12 @@ class CKEditor extends Component {
   componentWillUnmount() {
     this.instance.removeListener("change", this.changeListener);
     this.instance.destroy();
+  }
+
+  loadListener() {
+    if (this.props.onLoad) {
+      this.props.onLoad();
+    }
   }
 
   changeListener() {
