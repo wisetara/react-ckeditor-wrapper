@@ -73,7 +73,7 @@ class CKEditor extends Component {
   }
 
   render() {
-    return <div ref={(input) => this.divRef = input}/>;
+    return <div className="ckeditor-description" ref={(input) => this.divRef = input}/>;
   }
 }
 
